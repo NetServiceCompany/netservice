@@ -1,6 +1,7 @@
 package com.cvc.netservice.web.rest.order;
 
 import com.cvc.netservice.service.dto.OrderDTO;
+import com.cvc.netservice.service.dto.RevenueByTypeDTO;
 import com.cvc.netservice.service.dto.RevenueDTO;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.http.ResponseEntity;
@@ -16,12 +17,17 @@ public interface OrderApi {
     ResponseEntity<Long> create(@RequestBody OrderDTO orderDTO);
 
     @ApiOperation(value = "Get revenue By Date", notes = "", response = RevenueDTO.class, tags = {"ORDER",})
-    @GetMapping("/get-revenue-date")
+    @GetMapping("/get-revenue/date")
     ResponseEntity<RevenueDTO> getRevenueByDate(@RequestParam String dateTime);
 
     @ApiOperation(value = "Get Current revenue", notes = "", response = RevenueDTO.class, tags = {"ORDER",})
     @GetMapping("/get-revenue")
     ResponseEntity<RevenueDTO> getCurrentRevenue();
+
+    @ApiOperation(value = "Get Current revenue", notes = "", response = RevenueDTO.class, tags = {"ORDER",})
+    @GetMapping("/get-revenue/type-date")
+    ResponseEntity<RevenueByTypeDTO> getRevenueByTypeAndDate(@RequestParam String dateTime, @RequestParam String[] revenueType);
+
 
 
 }

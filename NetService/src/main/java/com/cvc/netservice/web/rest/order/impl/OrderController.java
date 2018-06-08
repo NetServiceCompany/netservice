@@ -2,6 +2,7 @@ package com.cvc.netservice.web.rest.order.impl;
 
 import com.cvc.netservice.service.OrderService;
 import com.cvc.netservice.service.dto.OrderDTO;
+import com.cvc.netservice.service.dto.RevenueByTypeDTO;
 import com.cvc.netservice.service.dto.RevenueDTO;
 import com.cvc.netservice.web.rest.order.OrderApi;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +50,19 @@ public class OrderController implements OrderApi {
         RevenueDTO revenueDTO = new RevenueDTO();
         try {
             revenueDTO = orderService.getRevenueByDate(LocalDateTime.now());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ResponseEntity.ok(revenueDTO);
+    }
+
+    @Override
+    public ResponseEntity<RevenueByTypeDTO> getRevenueByTypeAndDate(@RequestParam String dateTime,@RequestParam String[] revenueType) {
+        RevenueByTypeDTO revenueDTO = new RevenueByTypeDTO();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        LocalDateTime localDateTime = LocalDateTime.parse(dateTime, formatter);
+        try {
+                revenueDTO = orderService.getRevenueByTypeAndDate(localDateTime,revenueType);
         } catch (Exception e) {
             e.printStackTrace();
         }
