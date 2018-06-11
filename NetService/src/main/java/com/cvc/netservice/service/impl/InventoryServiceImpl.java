@@ -1,9 +1,13 @@
 package com.cvc.netservice.service.impl;
 
 import com.cvc.netservice.domain.TypeProduct;
+import com.cvc.netservice.repository.InventoryRepository;
 import com.cvc.netservice.repository.TypeProductRepository;
 import com.cvc.netservice.service.InventoryService;
+import com.cvc.netservice.service.common.Constants;
+import com.cvc.netservice.service.dto.ProductDTO;
 import com.cvc.netservice.service.dto.TypeProductDTO;
+import com.cvc.netservice.service.mapper.ProductMapper;
 import com.cvc.netservice.service.mapper.TypeProductMapper;
 import org.springframework.beans.PropertyAccessor;
 import org.springframework.beans.PropertyAccessorFactory;
@@ -20,56 +24,21 @@ import java.util.stream.Collectors;
 @Transactional
 public class InventoryServiceImpl implements InventoryService {
 
-    private final TypeProductMapper typeProductMapper;
+    private final InventoryRepository inventoryRepository;
 
-    private final TypeProductRepository typeProductRepository;
+    private final ProductMapper productMapper;
 
-    public InventoryServiceImpl(TypeProductMapper typeProductMapper,
-                                TypeProductRepository typeProductRepository) {
-        this.typeProductMapper = typeProductMapper;
-        this.typeProductRepository = typeProductRepository;
+    public InventoryServiceImpl(InventoryRepository inventoryRepository, ProductMapper productMapper) {
+        this.inventoryRepository = inventoryRepository;
+        this.productMapper = productMapper;
     }
 
     @Override
-    public Boolean createTypeProduct(TypeProductDTO typeProductDTO) throws Exception {
-        TypeProduct typeProduct = typeProductMapper.toEntity(typeProductDTO);
-        typeProductRepository.save(typeProduct);
-        return true;
+    public List<ProductDTO> findAllGoods() {
+        return inventoryRepository.findAllByTypeProductId(Constants.TYPE_MATERIAL_ID)
+                .stream().map(productMapper::toProductDTO).collect(Collectors.toCollection(LinkedList::new));
+
     }
 
-    @Override
-    public TypeProductDTO updateTypeProduct(String field, Object value, Long id) {
-        TypeProduct typeProduct = Optional.ofNullable(typeProductRepository.findOne(id))
-                .orElseThrow(EntityNotFoundException::new);
 
-        //Update
-        PropertyAccessor propertyAccessor = PropertyAccessorFactory.forBeanPropertyAccess(typeProduct);
-        propertyAccessor.setPropertyValue(field, value);
-
-        //Save
-        typeProductRepository.save(typeProduct);
-        return typeProductMapper.toProductDTO(typeProduct);
-    }
-
-    @Override
-    public Boolean deleteTypeProduct(Long id) throws Exception {
-        TypeProduct typeProduct = Optional.ofNullable(typeProductRepository.findOne(id))
-                .orElseThrow(EntityNotFoundException::new);
-        typeProductRepository.delete(id);
-        return true;
-    }
-
-    @Override
-    public List<TypeProductDTO> findAllTypeProduct() {
-        return typeProductRepository.findAll().stream()
-                .map(typeProductMapper::toProductDTO)
-                .collect(Collectors.toCollection(LinkedList::new));
-    }
-
-    @Override
-    public TypeProductDTO getTypeProduct(Long id) {
-        TypeProduct typeProduct = Optional.ofNullable(typeProductRepository.findOne(id))
-                .orElseThrow(EntityNotFoundException::new);
-        return typeProductMapper.toProductDTO(typeProduct);
-    }
 }

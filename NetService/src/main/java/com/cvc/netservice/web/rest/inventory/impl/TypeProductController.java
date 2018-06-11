@@ -1,6 +1,6 @@
 package com.cvc.netservice.web.rest.inventory.impl;
 
-import com.cvc.netservice.service.InventoryService;
+import com.cvc.netservice.service.TypeProductService;
 import com.cvc.netservice.service.dto.TypeProductDTO;
 import com.cvc.netservice.web.model.UpdateData;
 import com.cvc.netservice.web.rest.inventory.TypeProductApi;
@@ -16,11 +16,11 @@ import java.util.List;
 public class TypeProductController implements TypeProductApi {
 
     @Autowired
-    private InventoryService inventoryService;
+    private TypeProductService typeProductService;
 
     @Override
     public ResponseEntity<List<TypeProductDTO>> findAll() {
-        return ResponseEntity.ok(inventoryService.findAllTypeProduct());
+        return ResponseEntity.ok(typeProductService.findAllTypeProduct());
     }
 
     @Override
@@ -28,7 +28,7 @@ public class TypeProductController implements TypeProductApi {
         TypeProductDTO typeProductDTO;
 
         try {
-            typeProductDTO = inventoryService.getTypeProduct(id);
+            typeProductDTO = typeProductService.getTypeProduct(id);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -39,7 +39,7 @@ public class TypeProductController implements TypeProductApi {
     public ResponseEntity<Boolean> create(@RequestBody TypeProductDTO typeProductDTO) {
         Boolean result = true;
         try {
-            inventoryService.createTypeProduct(typeProductDTO);
+            typeProductService.createTypeProduct(typeProductDTO);
         } catch (Exception e) {
             result = false;
         }
@@ -50,7 +50,7 @@ public class TypeProductController implements TypeProductApi {
     public ResponseEntity<TypeProductDTO> update(@PathVariable("id") Long id,@RequestBody UpdateData data) {
         TypeProductDTO typeProductDTO;
         try {
-            typeProductDTO = inventoryService.updateTypeProduct(data.getKey(), data.getValue(), id);
+            typeProductDTO = typeProductService.updateTypeProduct(data.getKey(), data.getValue(), id);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -61,7 +61,7 @@ public class TypeProductController implements TypeProductApi {
     public ResponseEntity<Boolean> delete(@PathVariable("id") Long id) {
         Boolean result = true;
         try {
-            inventoryService.deleteTypeProduct(id);
+            typeProductService.deleteTypeProduct(id);
         } catch (Exception e) {
             result = false;
         }
