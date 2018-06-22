@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2018-06-10T13:52:50+0700",
+    date = "2018-06-22T10:41:19+0700",
     comments = "version: 1.1.0.Final, compiler: javac, environment: Java 1.8.0_92 (Oracle Corporation)"
 )
 @Component
@@ -31,7 +31,8 @@ public class OrderMapperImpl implements OrderMapper {
 
         orderDTO.setId( entity.getId() );
         orderDTO.setCustomerId( entity.getCustomerId() );
-        orderDTO.setEmployeeId( entity.getEmployeeId() );
+        orderDTO.setCustomerStoreId( entity.getCustomerStoreId() );
+        orderDTO.setStaffId( entity.getStaffId() );
         orderDTO.setOrderDate( entity.getOrderDate() );
         orderDTO.setStatus( entity.getStatus() );
         List<OrderDetailDTO> list = orderDetailListToOrderDetailDTOList( entity.getOrderDetails() );
@@ -52,7 +53,8 @@ public class OrderMapperImpl implements OrderMapper {
 
         order.setId( dto.getId() );
         order.setCustomerId( dto.getCustomerId() );
-        order.setEmployeeId( dto.getEmployeeId() );
+        order.setCustomerStoreId( dto.getCustomerStoreId() );
+        order.setStaffId( dto.getStaffId() );
         order.setOrderDate( dto.getOrderDate() );
         order.setStatus( dto.getStatus() );
         List<OrderDetail> list = orderDetailDTOListToOrderDetailList( dto.getOrderDetails() );

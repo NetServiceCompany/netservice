@@ -7,6 +7,8 @@ public class CustomerDTO implements Serializable {
 
     private Long id;
 
+    private Long storeId;
+
     private String firstName;
 
     private String lastName;
@@ -17,9 +19,7 @@ public class CustomerDTO implements Serializable {
 
     private Long phone;
 
-    private Double rewardPoint;
-
-    private String status;
+    private String rewardPoints;
 
     public Long getId() {
         return id;
@@ -27,6 +27,14 @@ public class CustomerDTO implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getStoreId() {
+        return storeId;
+    }
+
+    public void setStoreId(Long storeId) {
+        this.storeId = storeId;
     }
 
     public String getFirstName() {
@@ -69,19 +77,11 @@ public class CustomerDTO implements Serializable {
         this.phone = phone;
     }
 
-    public Double getRewardPoint() {
-        return rewardPoint;
+    public String getRewardPoints() {
+        return rewardPoints;
     }
 
-    public void setRewardPoint(Double rewardPoint) {
-        this.rewardPoint = rewardPoint;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
+    public void setRewardPoints(String rewardPoints) {
+        this.rewardPoints = rewardPoints;
     }
 }

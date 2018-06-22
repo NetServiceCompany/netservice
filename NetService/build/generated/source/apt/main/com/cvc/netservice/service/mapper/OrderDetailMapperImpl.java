@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2018-06-10T13:52:50+0700",
+    date = "2018-06-22T10:41:19+0700",
     comments = "version: 1.1.0.Final, compiler: javac, environment: Java 1.8.0_92 (Oracle Corporation)"
 )
 @Component
@@ -23,12 +23,14 @@ public class OrderDetailMapperImpl implements OrderDetailMapper {
 
         orderDetailDTO.setId( entity.getId() );
         orderDetailDTO.setOrderId( entity.getOrderId() );
+        orderDetailDTO.setOrderStaffId( entity.getOrderStaffId() );
+        orderDetailDTO.setOrderCustomerId( entity.getOrderCustomerId() );
         orderDetailDTO.setProductId( entity.getProductId() );
+        orderDetailDTO.setUnitPrice( entity.getUnitPrice() );
         orderDetailDTO.setDiscount( entity.getDiscount() );
         orderDetailDTO.setQuantity( entity.getQuantity() );
-        orderDetailDTO.setProductName( entity.getProductName() );
         orderDetailDTO.setTypeOrder( entity.getTypeOrder() );
-        orderDetailDTO.setUnitPrice( entity.getUnitPrice() );
+        orderDetailDTO.setProductName( entity.getProductName() );
 
         return orderDetailDTO;
     }
@@ -43,12 +45,14 @@ public class OrderDetailMapperImpl implements OrderDetailMapper {
 
         orderDetail.setId( dto.getId() );
         orderDetail.setOrderId( dto.getOrderId() );
+        orderDetail.setOrderStaffId( dto.getOrderStaffId() );
+        orderDetail.setOrderCustomerId( dto.getOrderCustomerId() );
         orderDetail.setProductId( dto.getProductId() );
+        orderDetail.setUnitPrice( dto.getUnitPrice() );
         orderDetail.setDiscount( dto.getDiscount() );
         orderDetail.setQuantity( dto.getQuantity() );
-        orderDetail.setProductName( dto.getProductName() );
         orderDetail.setTypeOrder( dto.getTypeOrder() );
-        orderDetail.setUnitPrice( dto.getUnitPrice() );
+        orderDetail.setProductName( dto.getProductName() );
 
         return orderDetail;
     }

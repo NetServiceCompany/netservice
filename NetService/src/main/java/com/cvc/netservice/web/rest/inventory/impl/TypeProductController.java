@@ -7,10 +7,12 @@ import com.cvc.netservice.web.rest.inventory.TypeProductApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
+
 
 @Controller
 public class TypeProductController implements TypeProductApi {
@@ -23,6 +25,7 @@ public class TypeProductController implements TypeProductApi {
         return ResponseEntity.ok(typeProductService.findAllTypeProduct());
     }
 
+//    @CrossOrigin(origins = "http://localhost:8080")
     @Override
     public ResponseEntity<TypeProductDTO> get(@PathVariable("id") Long id) {
         TypeProductDTO typeProductDTO;

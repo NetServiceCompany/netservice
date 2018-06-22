@@ -74,7 +74,7 @@ public class OrderServiceImpl implements OrderService {
                         * orderDetailDTO.getQuantity() * (1 - orderDetailDTO.getDiscount());
             }
 
-            if (orderDetailDTO.getTypeOrder().contains("nap tien")) {
+            if (orderDetailDTO.getTypeOrder().contains("tien")) {
                 sumComputer += orderDetailDTO.getUnitPrice()
                         * orderDetailDTO.getQuantity() * (1 - orderDetailDTO.getDiscount());
             }

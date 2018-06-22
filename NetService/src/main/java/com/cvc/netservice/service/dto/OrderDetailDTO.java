@@ -9,17 +9,21 @@ public class OrderDetailDTO implements Serializable {
 
     private Long orderId;
 
+    private Long orderStaffId;
+
+    private Long orderCustomerId;
+
     private Long productId;
+
+    private Double unitPrice;
 
     private Double discount;
 
     private Double quantity;
 
-    private String productName;
-
     private String typeOrder;
 
-    private Double unitPrice;
+    private String productName;
 
     public Long getId() {
         return id;
@@ -37,12 +41,36 @@ public class OrderDetailDTO implements Serializable {
         this.orderId = orderId;
     }
 
+    public Long getOrderStaffId() {
+        return orderStaffId;
+    }
+
+    public void setOrderStaffId(Long orderStaffId) {
+        this.orderStaffId = orderStaffId;
+    }
+
+    public Long getOrderCustomerId() {
+        return orderCustomerId;
+    }
+
+    public void setOrderCustomerId(Long orderCustomerId) {
+        this.orderCustomerId = orderCustomerId;
+    }
+
     public Long getProductId() {
         return productId;
     }
 
     public void setProductId(Long productId) {
         this.productId = productId;
+    }
+
+    public Double getUnitPrice() {
+        return unitPrice;
+    }
+
+    public void setUnitPrice(Double unitPrice) {
+        this.unitPrice = unitPrice;
     }
 
     public Double getDiscount() {
@@ -61,14 +89,6 @@ public class OrderDetailDTO implements Serializable {
         this.quantity = quantity;
     }
 
-    public String getProductName() {
-        return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-
     public String getTypeOrder() {
         return typeOrder;
     }
@@ -77,13 +97,11 @@ public class OrderDetailDTO implements Serializable {
         this.typeOrder = typeOrder;
     }
 
-    public Double getUnitPrice() {
-        return unitPrice;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setUnitPrice(Double unitPrice) {
-        this.unitPrice = unitPrice;
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
-
-
 }

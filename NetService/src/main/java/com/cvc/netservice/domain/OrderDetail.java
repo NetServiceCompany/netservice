@@ -10,14 +10,23 @@ public class OrderDetail implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "k_id")
+    @Column(name = "id")
     private Long id;
 
     @Column(name = "order_id")
     private Long orderId;
 
+    @Column(name = "order_staff_id")
+    private Long orderStaffId;
+
+    @Column(name = "order_customer_id")
+    private Long orderCustomerId;
+
     @Column(name = "product_id")
     private Long productId;
+
+    @Column(name = "unit_price")
+    private Double unitPrice;
 
     @Column(name = "discount")
     private Double discount;
@@ -25,14 +34,11 @@ public class OrderDetail implements Serializable {
     @Column(name = "quantity")
     private Double quantity;
 
-    @Column(name = "product_name")
-    private String productName;
-
     @Column(name = "type_order")
     private String typeOrder;
 
-    @Column(name = "unit_price")
-    private Double unitPrice;
+    @Column(name = "product_name")
+    private String productName;
 
     public Long getId() {
         return id;
@@ -50,12 +56,36 @@ public class OrderDetail implements Serializable {
         this.orderId = orderId;
     }
 
+    public Long getOrderStaffId() {
+        return orderStaffId;
+    }
+
+    public void setOrderStaffId(Long orderStaffId) {
+        this.orderStaffId = orderStaffId;
+    }
+
+    public Long getOrderCustomerId() {
+        return orderCustomerId;
+    }
+
+    public void setOrderCustomerId(Long orderCustomerId) {
+        this.orderCustomerId = orderCustomerId;
+    }
+
     public Long getProductId() {
         return productId;
     }
 
     public void setProductId(Long productId) {
         this.productId = productId;
+    }
+
+    public Double getUnitPrice() {
+        return unitPrice;
+    }
+
+    public void setUnitPrice(Double unitPrice) {
+        this.unitPrice = unitPrice;
     }
 
     public Double getDiscount() {
@@ -74,14 +104,6 @@ public class OrderDetail implements Serializable {
         this.quantity = quantity;
     }
 
-    public String getProductName() {
-        return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-
     public String getTypeOrder() {
         return typeOrder;
     }
@@ -90,11 +112,11 @@ public class OrderDetail implements Serializable {
         this.typeOrder = typeOrder;
     }
 
-    public Double getUnitPrice() {
-        return unitPrice;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setUnitPrice(Double unitPrice) {
-        this.unitPrice = unitPrice;
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 }

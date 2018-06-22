@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2018-06-10T13:52:49+0700",
+    date = "2018-06-22T10:41:19+0700",
     comments = "version: 1.1.0.Final, compiler: javac, environment: Java 1.8.0_92 (Oracle Corporation)"
 )
 @Component
@@ -22,13 +22,13 @@ public class CustomerMapperImpl implements CustomerMapper {
         CustomerDTO customerDTO = new CustomerDTO();
 
         customerDTO.setId( entity.getId() );
+        customerDTO.setStoreId( entity.getStoreId() );
         customerDTO.setFirstName( entity.getFirstName() );
         customerDTO.setLastName( entity.getLastName() );
         customerDTO.setBirthDate( entity.getBirthDate() );
         customerDTO.setAddress( entity.getAddress() );
         customerDTO.setPhone( entity.getPhone() );
-        customerDTO.setRewardPoint( entity.getRewardPoint() );
-        customerDTO.setStatus( entity.getStatus() );
+        customerDTO.setRewardPoints( entity.getRewardPoints() );
 
         return customerDTO;
     }
@@ -42,13 +42,13 @@ public class CustomerMapperImpl implements CustomerMapper {
         Customer customer = new Customer();
 
         customer.setId( dto.getId() );
+        customer.setStoreId( dto.getStoreId() );
         customer.setFirstName( dto.getFirstName() );
         customer.setLastName( dto.getLastName() );
         customer.setBirthDate( dto.getBirthDate() );
         customer.setAddress( dto.getAddress() );
         customer.setPhone( dto.getPhone() );
-        customer.setRewardPoint( dto.getRewardPoint() );
-        customer.setStatus( dto.getStatus() );
+        customer.setRewardPoints( dto.getRewardPoints() );
 
         return customer;
     }

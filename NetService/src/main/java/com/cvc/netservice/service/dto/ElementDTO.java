@@ -8,9 +8,13 @@ public class ElementDTO implements Serializable {
 
     private Long productId;
 
-    private String productName;
+    private Long goodsId;
+
+    private Long elementId;
 
     private Double quantity;
+
+    private Double costPrice;
 
     public Long getId() {
         return id;
@@ -28,12 +32,20 @@ public class ElementDTO implements Serializable {
         this.productId = productId;
     }
 
-    public String getProductName() {
-        return productName;
+    public Long getGoodsId() {
+        return goodsId;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public void setGoodsId(Long goodsId) {
+        this.goodsId = goodsId;
+    }
+
+    public Long getElementId() {
+        return elementId;
+    }
+
+    public void setElementId(Long elementId) {
+        this.elementId = elementId;
     }
 
     public Double getQuantity() {
@@ -42,5 +54,13 @@ public class ElementDTO implements Serializable {
 
     public void setQuantity(Double quantity) {
         this.quantity = quantity;
+    }
+
+    public Double getCostPrice() {
+        return costPrice;
+    }
+
+    public void setCostPrice(Double costPrice) {
+        this.costPrice = costPrice;
     }
 }

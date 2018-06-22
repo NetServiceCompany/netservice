@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2018-06-10T13:52:50+0700",
+    date = "2018-06-22T10:41:19+0700",
     comments = "version: 1.1.0.Final, compiler: javac, environment: Java 1.8.0_92 (Oracle Corporation)"
 )
 @Component
@@ -22,16 +22,15 @@ public class ProductMapperImpl implements ProductMapper {
         ProductDTO productDTO = new ProductDTO();
 
         productDTO.setId( entity.getId() );
-        productDTO.setProductName( entity.getProductName() );
-        productDTO.setTypeOrder( entity.getTypeOrder() );
-        productDTO.setTypeProductId( entity.getTypeProductId() );
+        productDTO.setStoreId( entity.getStoreId() );
         productDTO.setGroupProductId( entity.getGroupProductId() );
-        productDTO.setCapitalPrice( entity.getCapitalPrice() );
+        productDTO.setProductName( entity.getProductName() );
         productDTO.setSalePrice( entity.getSalePrice() );
-        productDTO.setQuantityStock( entity.getQuantityStock() );
-        productDTO.setQuantityStore( entity.getQuantityStore() );
-        productDTO.setDescription( entity.getDescription() );
+        productDTO.setCostPrice( entity.getCostPrice() );
         productDTO.setStatus( entity.getStatus() );
+        productDTO.setDescription( entity.getDescription() );
+        productDTO.setQuantityInStock( entity.getQuantityInStock() );
+        productDTO.setTypeOrder( entity.getTypeOrder() );
 
         return productDTO;
     }
@@ -45,16 +44,15 @@ public class ProductMapperImpl implements ProductMapper {
         Product product = new Product();
 
         product.setId( dto.getId() );
-        product.setProductName( dto.getProductName() );
-        product.setTypeOrder( dto.getTypeOrder() );
-        product.setTypeProductId( dto.getTypeProductId() );
+        product.setStoreId( dto.getStoreId() );
         product.setGroupProductId( dto.getGroupProductId() );
-        product.setCapitalPrice( dto.getCapitalPrice() );
+        product.setProductName( dto.getProductName() );
         product.setSalePrice( dto.getSalePrice() );
-        product.setQuantityStock( dto.getQuantityStock() );
-        product.setQuantityStore( dto.getQuantityStore() );
-        product.setDescription( dto.getDescription() );
+        product.setCostPrice( dto.getCostPrice() );
         product.setStatus( dto.getStatus() );
+        product.setDescription( dto.getDescription() );
+        product.setQuantityInStock( dto.getQuantityInStock() );
+        product.setTypeOrder( dto.getTypeOrder() );
 
         return product;
     }

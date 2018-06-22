@@ -14,6 +14,9 @@ public class Staff implements Serializable {
     @Column(name = "k_id")
     private Long id;
 
+    @Column(name = "store_id")
+    private Long storeId;
+
     @Column(name = "first_name")
     private String firstName;
 
@@ -41,6 +44,14 @@ public class Staff implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getStoreId() {
+        return storeId;
+    }
+
+    public void setStoreId(Long storeId) {
+        this.storeId = storeId;
     }
 
     public String getFirstName() {

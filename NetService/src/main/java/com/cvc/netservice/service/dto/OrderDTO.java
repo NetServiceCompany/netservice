@@ -11,7 +11,9 @@ public class OrderDTO implements Serializable {
 
     private Long customerId;
 
-    private Long employeeId;
+    private Long customerStoreId;
+
+    private Long staffId;
 
     private LocalDateTime orderDate;
 
@@ -35,12 +37,20 @@ public class OrderDTO implements Serializable {
         this.customerId = customerId;
     }
 
-    public Long getEmployeeId() {
-        return employeeId;
+    public Long getCustomerStoreId() {
+        return customerStoreId;
     }
 
-    public void setEmployeeId(Long employeeId) {
-        this.employeeId = employeeId;
+    public void setCustomerStoreId(Long customerStoreId) {
+        this.customerStoreId = customerStoreId;
+    }
+
+    public Long getStaffId() {
+        return staffId;
+    }
+
+    public void setStaffId(Long staffId) {
+        this.staffId = staffId;
     }
 
     public LocalDateTime getOrderDate() {

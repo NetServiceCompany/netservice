@@ -10,8 +10,11 @@ public class Customer implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "k_id")
+    @Column(name = "id")
     private Long id;
+
+    @Column(name = "store_id")
+    private Long storeId;
 
     @Column(name = "first_name")
     private String firstName;
@@ -28,11 +31,8 @@ public class Customer implements Serializable{
     @Column(name = "phone")
     private Long phone;
 
-    @Column(name = "reward_point")
-    private Double rewardPoint;
-
-    @Column(name = "status")
-    private String status;
+    @Column(name = "reward_points")
+    private String rewardPoints;
 
     public Long getId() {
         return id;
@@ -40,6 +40,14 @@ public class Customer implements Serializable{
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getStoreId() {
+        return storeId;
+    }
+
+    public void setStoreId(Long storeId) {
+        this.storeId = storeId;
     }
 
     public String getFirstName() {
@@ -82,19 +90,11 @@ public class Customer implements Serializable{
         this.phone = phone;
     }
 
-    public Double getRewardPoint() {
-        return rewardPoint;
+    public String getRewardPoints() {
+        return rewardPoints;
     }
 
-    public void setRewardPoint(Double rewardPoint) {
-        this.rewardPoint = rewardPoint;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
+    public void setRewardPoints(String rewardPoints) {
+        this.rewardPoints = rewardPoints;
     }
 }

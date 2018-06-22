@@ -1,23 +1,16 @@
 package com.cvc.netservice.service.impl;
 
-import com.cvc.netservice.domain.TypeProduct;
 import com.cvc.netservice.repository.InventoryRepository;
-import com.cvc.netservice.repository.TypeProductRepository;
 import com.cvc.netservice.service.InventoryService;
-import com.cvc.netservice.service.common.Constants;
+import com.cvc.netservice.service.dto.GoodsDTO;
 import com.cvc.netservice.service.dto.ProductDTO;
-import com.cvc.netservice.service.dto.TypeProductDTO;
+import com.cvc.netservice.service.mapper.GoodsMapper;
 import com.cvc.netservice.service.mapper.ProductMapper;
-import com.cvc.netservice.service.mapper.TypeProductMapper;
-import org.springframework.beans.PropertyAccessor;
-import org.springframework.beans.PropertyAccessorFactory;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -26,18 +19,17 @@ public class InventoryServiceImpl implements InventoryService {
 
     private final InventoryRepository inventoryRepository;
 
-    private final ProductMapper productMapper;
+    private final GoodsMapper goodsMapper;
 
-    public InventoryServiceImpl(InventoryRepository inventoryRepository, ProductMapper productMapper) {
+    public InventoryServiceImpl(InventoryRepository inventoryRepository, GoodsMapper goodsMapper) {
         this.inventoryRepository = inventoryRepository;
-        this.productMapper = productMapper;
+        this.goodsMapper = goodsMapper;
     }
 
     @Override
-    public List<ProductDTO> findAllGoods() {
-        return inventoryRepository.findAllByTypeProductId(Constants.TYPE_MATERIAL_ID)
-                .stream().map(productMapper::toProductDTO).collect(Collectors.toCollection(LinkedList::new));
-
+    public List<GoodsDTO> findAllGoods() {
+        return inventoryRepository.findAllGoods()
+                .stream().map(goodsMapper::toGoodsDTO).collect(Collectors.toCollection(LinkedList::new));
     }
 
 

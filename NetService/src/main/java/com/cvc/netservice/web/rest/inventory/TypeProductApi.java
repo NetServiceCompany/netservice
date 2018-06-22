@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin("http://localhost:8383")
 @RequestMapping("/type-product")
 public interface TypeProductApi {
 

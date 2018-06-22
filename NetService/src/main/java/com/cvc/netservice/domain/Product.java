@@ -8,38 +8,35 @@ import java.io.Serializable;
 public class Product implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "k_id")
+    @Column(name = "id")
     private Long id;
 
-    @Column(name = "product_name")
-    private String productName;
-
-    @Column(name = "type_order")
-    private String typeOrder;
-
-    @Column(name = "type_product_id")
-    private Long typeProductId;
+    @Column(name = "store_id")
+    private String storeId;
 
     @Column(name = "group_product_id")
     private Long groupProductId;
 
-    @Column(name = "capital_price")
-    private Double capitalPrice;
+    @Column(name = "product_name")
+    private String productName;
 
     @Column(name = "sale_price")
     private Double salePrice;
 
-    @Column(name = "quantity_stock")
-    private Double quantityStock;
+    @Column(name = "cost_price")
+    private Double costPrice;
 
-    @Column(name = "quantity_store")
-    private Double quantityStore;
+    @Column(name = "status")
+    private String status;
 
     @Column(name = "description")
     private String description;
 
-    @Column(name = "status")
-    private String status;
+    @Column(name = "quantity_in_stock")
+    private Double quantityInStock;
+
+    @Column(name = "type_order")
+    private String typeOrder;
 
     public Long getId() {
         return id;
@@ -49,28 +46,12 @@ public class Product implements Serializable{
         this.id = id;
     }
 
-    public String getProductName() {
-        return productName;
+    public String getStoreId() {
+        return storeId;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-
-    public String getTypeOrder() {
-        return typeOrder;
-    }
-
-    public void setTypeOrder(String typeOrder) {
-        this.typeOrder = typeOrder;
-    }
-
-    public Long getTypeProductId() {
-        return typeProductId;
-    }
-
-    public void setTypeProductId(Long typeProductId) {
-        this.typeProductId = typeProductId;
+    public void setStoreId(String storeId) {
+        this.storeId = storeId;
     }
 
     public Long getGroupProductId() {
@@ -81,12 +62,12 @@ public class Product implements Serializable{
         this.groupProductId = groupProductId;
     }
 
-    public Double getCapitalPrice() {
-        return capitalPrice;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setCapitalPrice(Double capitalPrice) {
-        this.capitalPrice = capitalPrice;
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
     public Double getSalePrice() {
@@ -97,20 +78,20 @@ public class Product implements Serializable{
         this.salePrice = salePrice;
     }
 
-    public Double getQuantityStock() {
-        return quantityStock;
+    public Double getCostPrice() {
+        return costPrice;
     }
 
-    public void setQuantityStock(Double quantityStock) {
-        this.quantityStock = quantityStock;
+    public void setCostPrice(Double costPrice) {
+        this.costPrice = costPrice;
     }
 
-    public Double getQuantityStore() {
-        return quantityStore;
+    public String getStatus() {
+        return status;
     }
 
-    public void setQuantityStore(Double quantityStore) {
-        this.quantityStore = quantityStore;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getDescription() {
@@ -121,11 +102,19 @@ public class Product implements Serializable{
         this.description = description;
     }
 
-    public String getStatus() {
-        return status;
+    public Double getQuantityInStock() {
+        return quantityInStock;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setQuantityInStock(Double quantityInStock) {
+        this.quantityInStock = quantityInStock;
+    }
+
+    public String getTypeOrder() {
+        return typeOrder;
+    }
+
+    public void setTypeOrder(String typeOrder) {
+        this.typeOrder = typeOrder;
     }
 }

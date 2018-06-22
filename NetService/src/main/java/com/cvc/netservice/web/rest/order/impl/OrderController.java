@@ -34,7 +34,7 @@ public class OrderController implements OrderApi {
 
     @Override
     public ResponseEntity<RevenueDTO> getRevenueByDate(String dateTime) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime localDateTime = LocalDateTime.parse(dateTime, formatter);
         RevenueDTO revenueDTO = new RevenueDTO();
         try {
@@ -59,7 +59,7 @@ public class OrderController implements OrderApi {
     @Override
     public ResponseEntity<RevenueByTypeDTO> getRevenueByTypeAndDate(@RequestParam String dateTime,@RequestParam String[] revenueType) {
         RevenueByTypeDTO revenueDTO = new RevenueByTypeDTO();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime localDateTime = LocalDateTime.parse(dateTime, formatter);
         try {
                 revenueDTO = orderService.getRevenueByTypeAndDate(localDateTime,revenueType);

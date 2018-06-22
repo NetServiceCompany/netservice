@@ -7,6 +7,8 @@ public class StaffDTO implements Serializable {
 
     private Long id;
 
+    private Long storeId;
+
     private String firstName;
 
     private String lastName;
@@ -27,6 +29,14 @@ public class StaffDTO implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getStoreId() {
+        return storeId;
+    }
+
+    public void setStoreId(Long storeId) {
+        this.storeId = storeId;
     }
 
     public String getFirstName() {

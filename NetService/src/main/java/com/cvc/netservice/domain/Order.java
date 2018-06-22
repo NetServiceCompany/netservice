@@ -14,14 +14,17 @@ public class Order implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "k_id")
+    @Column(name = "id")
     private Long id;
 
     @Column(name = "customer_id")
     private Long customerId;
 
-    @Column(name = "employee_id")
-    private Long employeeId;
+    @Column(name = "customer_store_id")
+    private Long customerStoreId;
+
+    @Column(name = "staff_id")
+    private Long staffId;
 
     @Column(name = "order_date")
     private LocalDateTime orderDate;
@@ -30,7 +33,7 @@ public class Order implements Serializable {
     private String status;
 
     @OneToMany
-    @JoinColumn(name = "order_id", referencedColumnName = "k_id", insertable = false, updatable = false)
+    @JoinColumn(name = "order_id", referencedColumnName = "id", insertable = false, updatable = false)
     @JsonManagedReference
     private List<OrderDetail> orderDetails;
 
@@ -50,12 +53,20 @@ public class Order implements Serializable {
         this.customerId = customerId;
     }
 
-    public Long getEmployeeId() {
-        return employeeId;
+    public Long getCustomerStoreId() {
+        return customerStoreId;
     }
 
-    public void setEmployeeId(Long employeeId) {
-        this.employeeId = employeeId;
+    public void setCustomerStoreId(Long customerStoreId) {
+        this.customerStoreId = customerStoreId;
+    }
+
+    public Long getStaffId() {
+        return staffId;
+    }
+
+    public void setStaffId(Long staffId) {
+        this.staffId = staffId;
     }
 
     public LocalDateTime getOrderDate() {

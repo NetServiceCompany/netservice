@@ -7,25 +7,23 @@ public class ProductDTO implements Serializable {
 
     private Long id;
 
-    private String productName;
-
-    private String typeOrder;
-
-    private Long typeProductId;
+    private String storeId;
 
     private Long groupProductId;
 
-    private Double capitalPrice;
+    private String productName;
 
     private Double salePrice;
 
-    private Double quantityStock;
+    private Double costPrice;
 
-    private Double quantityStore;
+    private String status;
 
     private String description;
 
-    private String status;
+    private Double quantityInStock;
+
+    private String typeOrder;
 
     public Long getId() {
         return id;
@@ -35,28 +33,12 @@ public class ProductDTO implements Serializable {
         this.id = id;
     }
 
-    public String getProductName() {
-        return productName;
+    public String getStoreId() {
+        return storeId;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-
-    public String getTypeOrder() {
-        return typeOrder;
-    }
-
-    public void setTypeOrder(String typeOrder) {
-        this.typeOrder = typeOrder;
-    }
-
-    public Long getTypeProductId() {
-        return typeProductId;
-    }
-
-    public void setTypeProductId(Long typeProductId) {
-        this.typeProductId = typeProductId;
+    public void setStoreId(String storeId) {
+        this.storeId = storeId;
     }
 
     public Long getGroupProductId() {
@@ -67,12 +49,12 @@ public class ProductDTO implements Serializable {
         this.groupProductId = groupProductId;
     }
 
-    public Double getCapitalPrice() {
-        return capitalPrice;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setCapitalPrice(Double capitalPrice) {
-        this.capitalPrice = capitalPrice;
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
     public Double getSalePrice() {
@@ -83,20 +65,20 @@ public class ProductDTO implements Serializable {
         this.salePrice = salePrice;
     }
 
-    public Double getQuantityStock() {
-        return quantityStock;
+    public Double getCostPrice() {
+        return costPrice;
     }
 
-    public void setQuantityStock(Double quantityStock) {
-        this.quantityStock = quantityStock;
+    public void setCostPrice(Double costPrice) {
+        this.costPrice = costPrice;
     }
 
-    public Double getQuantityStore() {
-        return quantityStore;
+    public String getStatus() {
+        return status;
     }
 
-    public void setQuantityStore(Double quantityStore) {
-        this.quantityStore = quantityStore;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getDescription() {
@@ -107,11 +89,19 @@ public class ProductDTO implements Serializable {
         this.description = description;
     }
 
-    public String getStatus() {
-        return status;
+    public Double getQuantityInStock() {
+        return quantityInStock;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setQuantityInStock(Double quantityInStock) {
+        this.quantityInStock = quantityInStock;
+    }
+
+    public String getTypeOrder() {
+        return typeOrder;
+    }
+
+    public void setTypeOrder(String typeOrder) {
+        this.typeOrder = typeOrder;
     }
 }

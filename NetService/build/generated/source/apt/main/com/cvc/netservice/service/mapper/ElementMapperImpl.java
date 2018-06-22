@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2018-06-10T13:52:50+0700",
+    date = "2018-06-22T10:41:19+0700",
     comments = "version: 1.1.0.Final, compiler: javac, environment: Java 1.8.0_92 (Oracle Corporation)"
 )
 @Component
@@ -23,8 +23,10 @@ public class ElementMapperImpl implements ElementMapper {
 
         elementDTO.setId( entity.getId() );
         elementDTO.setProductId( entity.getProductId() );
-        elementDTO.setProductName( entity.getProductName() );
+        elementDTO.setGoodsId( entity.getGoodsId() );
+        elementDTO.setElementId( entity.getElementId() );
         elementDTO.setQuantity( entity.getQuantity() );
+        elementDTO.setCostPrice( entity.getCostPrice() );
 
         return elementDTO;
     }
